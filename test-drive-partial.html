@@ -1,0 +1,210 @@
+<html>
+<body>
+<code>
+<pre>
+'{$STAMP BS2}
+'{$PBASIC 2.5}
+
+DEBUG "Test Drive"
+
+'Servo 12 - Right Wheel
+'Servo 13 - Left Wheel
+counter VAR Word
+
+ 
+PAUSE 10000 'wait ten seconds to run
+
+'PUT YOUR DRIVING CODE BELOW IN THE ORDER OF THE MOVEMENT
+
+'''''''''''''''''''''''''''''''''''''''''''
+'TEST 1 - Forward, Wait, Backward, Wait
+
+GOSUB moveForward
+
+GOSUB waitTime
+
+GOSUB moveBackward 
+
+GOSUB waitTime
+
+'TEST 2 - Forward, Wait, Turn 180, Wait, Forward, Wait, Turn 180
+
+'GOSUB 
+
+GOSUB waitTime
+
+'GOSUB
+
+GOSUB waitTime
+
+'GOSUB 
+
+GOSUB waitTime
+
+'GOSUB 
+
+GOSUB waitTime
+
+'TEST 3 - Forward, Wait, Turn clockwise 90 degrees, Wait, Forward, Wait
+
+'GOSUB 
+
+GOSUB waitTime
+
+'GOSUB 
+
+GOSUB waitTime
+
+'GOSUB 
+
+GOSUB waitTime
+
+'TEST 4 - Backward, Wait, counter clockwise turn 90 degrees, wait, backward, wait
+
+'GOSUB 
+
+GOSUB waitTime
+
+'GOSUB 
+
+GOSUB waitTime
+
+'GOSUB 
+
+GOSUB waitTime
+
+'TEST 5 - move forward in a clockwise arc, wait, move backward in a counterclockwise arc, wait
+
+'GOSUB 
+
+GOSUB waitTime
+
+'GOSUB 
+
+GOSUB waitTime
+'''''''''''''''''''''''''''''''''''''''''''
+
+'END DRIVING CODE
+
+END ' end the program
+
+waitTime:
+ 'bot pause for 1 second
+ FOR counter = 1 TO 40
+    PULSOUT 12, 750 'right servo stay still 
+    PULSOUT 13, 750 'left servo stay still
+    PAUSE 20
+ NEXT
+ RETURN
+ 
+moveForward:
+  'bot move forward for 3 seconds
+  FOR counter = 1 TO 180 'amount of counts to move
+    PULSOUT 12, 650 'clockwise on servo 12
+    PULSOUT 13, 850 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+  
+moveBackward:
+'bot moves backwards
+  FOR counter = 1 TO 180 'count for 3 seconds
+    PULSOUT 12, 850 'counterclockwise on servo 12
+    PULSOUT 13, 650 'clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+  
+clockTurn90:
+  'bot turn clockwise on center 90 degrees
+  FOR counter = 1 TO 22 'amount of counts to move
+    PULSOUT 12, 850 'counter clockwise on servo 12
+    PULSOUT 13, 850 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+
+counterClockTurn90:
+  'bot turn counter-clockwise on center 90 degrees
+  FOR counter = 1 TO 22 'amount of counts to move
+    PULSOUT 12, 650 'counter clockwise on servo 12
+    PULSOUT 13, 650 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+  
+clockTurn180:
+  'bot turn clockwise on center 90 degrees
+  FOR counter = 1 TO 40 'amount of counts to move
+    PULSOUT 12, 850 'counter clockwise on servo 12
+    PULSOUT 13, 850 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+
+counterClockTurn180:
+  'bot turn counter-clockwise on center 90 degrees
+  FOR counter = 1 TO 40 'amount of counts to move
+    PULSOUT 12, 650 'counter clockwise on servo 12
+    PULSOUT 13, 650 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+
+forwardPivotR180:
+  'bot turn on center 180 degrees
+  FOR counter = 1 TO 43'amount of counts to move
+    PULSOUT 12, 750 'clockwise on servo 12
+    PULSOUT 13, 850 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+
+backwardPivotR180:
+  'bot turn on center 180 degrees
+  FOR counter = 1 TO 43'amount of counts to move
+    PULSOUT 12, 750 'clockwise on servo 12
+    PULSOUT 13, 650 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+
+forwardPivotL180:
+  'bot turn on center 180 degrees
+  FOR counter = 1 TO 43'amount of counts to move
+    PULSOUT 12, 650 'clockwise on servo 12
+    PULSOUT 13, 750 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+
+backwardPivotL180:
+  'bot turn on center 180 degrees
+  FOR counter = 1 TO 43'amount of counts to move
+    PULSOUT 12, 850 'clockwise on servo 12
+    PULSOUT 13, 750 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+  
+moveBackwardArcCounterClock:
+  'bot move backwards in an arc for 3 seconds
+  FOR counter = 1 TO 180 'amount of counts to move
+    PULSOUT 12, 800 'counter clockwise on servo 12
+    PULSOUT 13, 650 'clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+
+moveForwardArcClock:
+  'bot move backwards in an arc for 3 seconds
+  FOR counter = 1 TO 180 'amount of counts to move
+    PULSOUT 12, 700 'clockwise on servo 12
+    PULSOUT 13, 850 'counter clockwise on servo 13
+    PAUSE 20
+  NEXT
+  RETURN
+</pre>
+</code>
+</body>
+</html>
